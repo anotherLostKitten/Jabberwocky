@@ -2,14 +2,15 @@ PLAN
 
 Most crucial:
 - Maze creation.
-- Shortest route movement system.
+- Processing Display
 - Monster placement.
 - Combat system.
 - Stats display
+- Shortest route movement system.
 
 Really crucial but not deathly crucial:
 - Designs for everything in the game.
 - Shop and potions/weapons/spells.
-- Shrouded in darkness -> lit up maze.
+- Shrouded in darkness -> lit up maze. when explored
 
-Timeline: Guys, I am terrible at scheduling.
+Timeline: Each take at least one task to do over weekend
