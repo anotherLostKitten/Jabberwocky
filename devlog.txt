@@ -1,0 +1,9 @@
+DEVELOPMENT LOG
+
+****************************************************************
+May 18, 2017
+
+Theodore -- Created repo. Brainstorming.
+Joanna -- Work on the processing part begun, but did not get far
+	and will most likely be scrapped. Began devlog.
+James -- Created UML
