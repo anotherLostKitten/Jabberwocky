@@ -7,3 +7,7 @@ Theodore -- Created repo. Brainstorming.
 Joanna -- Work on the processing part begun, but did not get far
 	and will most likely be scrapped. Began devlog.
 James -- Created UML
+
+May 21, 2017
+
+Theodore -- Dungeon generator up and running.
