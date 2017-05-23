@@ -8,7 +8,7 @@ class Player extends Item{
   int arrayX;
   int arrayY;
   Player(){
-    super(140, 140, #FFFFFF);
+    super(280, 280, #FFFFFF);
     explored = true;
     coin = 0;
     attack = 50;
@@ -16,8 +16,12 @@ class Player extends Item{
     level = 1;
     magic = 50;
     weapon = 0;
-    arrayX = (room[0].length + 1) / 2;
-    arrayY = (room.length + 1) / 2;
+    arrayX = (int) random(room[0].length);
+    arrayY = (int) random(room.length);
+    while (room[arrayY][arrayY] < 1){
+      arrayX = (int) random(room[0].length);
+      arrayY = (int) random(room.length);
+    }
     //arrayX = 1;
     //arrayY = 1;
   }

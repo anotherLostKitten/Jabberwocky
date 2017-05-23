@@ -5,7 +5,7 @@ class Item {
   color col;
   boolean explored;
   Item(int hori, int vert, color whatever){
-    size = 20;
+    size = 40;
     x = hori;
     y = vert;
     col = whatever;
