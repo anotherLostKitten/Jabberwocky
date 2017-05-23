@@ -32,10 +32,9 @@ Player automaton = new Player();
 
 void setup(){
   size(600, 300);
-  background(0,0,0);
 }
   void draw(){
-    keyPressed();
+  background(0,0,0);
     for(int y = automaton.arrayY - 7; y <= automaton.arrayY + 7; y += 1){
       for (int x = automaton.arrayX - 7; x <= automaton.arrayX + 7; x += 1){
         if (y > -1 && y < room.length && x > -1 && x < room[0].length &&
@@ -46,15 +45,14 @@ void setup(){
       }
     }
     automaton.display();
-    keyPressed();
   }
   
   void keyPressed(){
     if (key == CODED){
-      if (keyCode == UP && room[automaton.arrayY + 1][automaton.arrayX] == 1){
+      if (keyCode == DOWN && room[automaton.arrayY + 1][automaton.arrayX] == 1){
         automaton.moveY(1);
       }
-      else if (keyCode == DOWN && room[automaton.arrayY - 1][automaton.arrayX] == 1){
+      else if (keyCode == UP && room[automaton.arrayY - 1][automaton.arrayX] == 1){
         automaton.moveY(-1);
       }
       else if (keyCode == LEFT && room[automaton.arrayY][automaton.arrayX - 1] == 1){

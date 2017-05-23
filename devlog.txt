@@ -8,6 +8,15 @@ Joanna -- Work on the processing part begun, but did not get far
 	and will most likely be scrapped. Began devlog.
 James -- Created UML
 
+
+****************************************************************
 May 21, 2017
 
 Theodore -- Dungeon generator up and running.
+
+
+****************************************************************
+May 23, 2017
+
+Joanna -- Got movement going on simple grid.
+Theodore and James -- Worked on plan.

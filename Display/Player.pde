@@ -18,6 +18,8 @@ class Player extends Item{
     weapon = 0;
     arrayX = (room[0].length + 1) / 2;
     arrayY = (room.length + 1) / 2;
+    //arrayX = 1;
+    //arrayY = 1;
   }
   void moveX(int thing){
     arrayX += thing;
