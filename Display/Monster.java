@@ -8,7 +8,12 @@ public class Monster extends Item{
     private int state;
 
     public Monster(){
-	
+	state = 1;
+	level = 1;
+	health = 50;
+	attack = 20;
+	arrayX = 
+	arrayY = 
     }
 
     public void die(){
@@ -18,7 +23,7 @@ public class Monster extends Item{
     public void setHealth(int damage){
 	health = health - damage;
 	if (health < 0){
-	    die();
+	    state = 0;
 	}
     }
     
