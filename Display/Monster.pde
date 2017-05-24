@@ -8,6 +8,7 @@ public class Monster extends Item{
     private int state;
     
     public Monster(int lvl, int x, int y){
+      super(x, y, #FFFFFF);
 	state = 1;
 	level = lvl;
 	health = 50 + level * (int)(Math.random()*20);

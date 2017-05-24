@@ -1,9 +1,10 @@
 int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
-PImage floor = loadImage("../data/floor.png");
+PImage floor;
 Player automaton = new Player();
 
 void setup(){
   size(900, 600);
+  floor = loadImage("../data/floor.png");
 }
   void draw(){
   background(0,0,0);
