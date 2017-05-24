@@ -1,4 +1,5 @@
 int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
+PImage floor = loadImage("../data/floor.png");
 Player automaton = new Player();
 
 void setup(){
@@ -12,7 +13,7 @@ void setup(){
           room[y][x] >= 1){
             noStroke();
             fill(#5D0000);
-            rect((x + 7 - automaton.arrayX) * 40, (y + 7 - automaton.arrayY) * 40, 40, 40);
+            image(floor, (x + 7 - automaton.arrayX) * 40, (y + 7 - automaton.arrayY) * 40, 40, 40);
         }
       }
     }
