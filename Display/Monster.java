@@ -6,24 +6,25 @@ public class Monster extends Item{
     private int arrayX;
     private int arrayY;
     private int state;
-
-    public Monster(){
+    
+    public Monster(int lvl, int x, int y){
 	state = 1;
-	level = 1;
-	health = 50;
-	attack = 20;
-	arrayX = 
-	arrayY = 
+	level = lvl;
+	health = 50 + level * (int)(Math.random()*20);
+	attack = 20 + level * (int)(Math.random()*20);
+	arrayX = x;
+	arrayY = y;
     }
 
     public void die(){
-	dropCoin();
+	//dropCoin();
+	state = 0;//monster disappears and drops a coin
     }
     
     public void setHealth(int damage){
 	health = health - damage;
 	if (health < 0){
-	    state = 0;
+	    die();
 	}
     }
     
