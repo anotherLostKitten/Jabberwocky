@@ -1,9 +1,11 @@
 int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
 PImage floor;
 Player automaton = new Player();
+PFont f;
 
 void setup(){
   size(900, 600);
+  f = createFont("Monospaced.bold", 20, true);
   floor = loadImage("../data/floor.png");
 }
   void draw(){
@@ -19,6 +21,10 @@ void setup(){
       }
     }
     automaton.display();
+    textFont(f, 20);
+    fill(255,255,255);
+    textAlign(CENTER);
+    text("Health", 750, 100);
   }
   
   void keyPressed(){
