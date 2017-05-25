@@ -29,7 +29,8 @@ Joanna -- Hooked up Dungeon to Display.
 Theodore -- worked on design and Dungeon.java. Did UML.
 James -- worked on monster class. Did flowchart.
 
-***************************************************************
+****************************************************************
+May 24, 2017
 
 Theodore -- Created floor texture
 Joanna -- Displayed texture in processing
