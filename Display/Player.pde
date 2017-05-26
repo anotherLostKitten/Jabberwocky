@@ -4,7 +4,7 @@ class Player extends Item{
   int health;
   int level;
   int magic;
-  int weapon;
+  int[] inventory;
   int arrayX;
   int arrayY;
   Player(){
@@ -15,7 +15,7 @@ class Player extends Item{
     health = 300;
     level = 1;
     magic = 50;
-    weapon = 0;
+    inventory = new int[7];
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
     while (room[arrayY][arrayX] < 1){
@@ -31,4 +31,11 @@ class Player extends Item{
   void moveY(int thing){
     arrayY += thing;
   }
+  
+  void buyItem(int item){
+    inventory.add(item); 
+  }
+  
+  
+  
 }
