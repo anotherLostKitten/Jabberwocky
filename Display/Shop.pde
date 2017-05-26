@@ -2,6 +2,7 @@ class Shop extends Item{
                 private int potionStock;
                 private int spellStock;
                 private int weaponStock;
+
               
                 
                 public Shop(){
