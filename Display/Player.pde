@@ -18,7 +18,7 @@ class Player extends Item{
     weapon = 0;
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
-    while (room[arrayY][arrayY] < 1){
+    while (room[arrayY][arrayX] < 1){
       arrayX = (int) random(room[0].length);
       arrayY = (int) random(room.length);
     }
