@@ -5,7 +5,8 @@ class Shop extends Item{
 
               
                 
-                public Shop(){
+                public Shop(int x, int y){
+                   super(x, y, #A7A320);
                    potionStock = (int)(Math.random()*5); 
                    spellStock = (int)(Math.random()*5); 
                    weaponStock = (int)(Math.random()*5); 

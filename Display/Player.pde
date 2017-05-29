@@ -5,8 +5,6 @@ class Player extends Item{
   int level;
   int magic;
   int[] inventory;
-  int arrayX;
-  int arrayY;
   Player(){
     super(280, 280, #FFFFFF);
     explored = true;
@@ -33,7 +31,8 @@ class Player extends Item{
   }
   
   void buyItem(int item){
-    inventory.add(item); 
+    //fix this
+    //inventory.add(item); 
   }
   
   

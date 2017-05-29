@@ -3,8 +3,6 @@ public class Monster extends Item{
     private int level;
     private int health;
     private int attack;
-    private int arrayX;
-    private int arrayY;
     private int state;
     
     public Monster(int lvl, int x, int y){
