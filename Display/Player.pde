@@ -61,6 +61,22 @@ class Player extends Item{
     return true;
   }
   
-  
+  int useItem(int slot){
+      if ( inventory[slot] == 0){
+        return 10; // damage
+      }
+      if (inventory[slot] <= 102 && inventory[slot] >= 104){
+        reduceDurability();
+        return 50; //damage
+      }
+      if (inventory[slot] == 105){
+                reduceDurability(); //durability of 1
+                health += 100;
+      }
+      if (inventory[slot] == 106]{
+              reduceDurability(); //durability of 1
+              magic  += 50; 
+      }  
+  }
   
 }
