@@ -7,6 +7,7 @@ void setup(){
   size(900, 600);
   f = createFont("Monospaced.bold", 20, true);
   floor = loadImage("../data/floor.png");
+  frameRate(5);
 }
   void draw(){
   background(0,0,0);
