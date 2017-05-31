@@ -13,7 +13,7 @@ public class InvItem{
   
   public InvItem(int level, int ID){
     if (ID == 101){
-       durability = -1;//infinite use
+       durability = -100;//infinite use
        damage = 10 + 10*level;}
     if (ID == 102){
        durability = 5 + 3*level;
@@ -26,15 +26,17 @@ public class InvItem{
        damage = 20 + 25*level ;}    
     if (ID == 105){
        durability = 1;
-       restoreHealth = 150 + 10*level;}
+       restoreHealth = 150 + 10*level;
+      damage =0;}
     if (ID == 106){
        durability = 1;
-       restoreMagic = 25 + 10*level;}  
+       restoreMagic = 25 + 10*level;
+      damage =0;}  
        }
        
   Boolean reduceDurability(){ //returns false if the weapon/potion/spell is used up.
     durability -= 1;
-    if (durability == 0){
+    if (durability == -1){
       return false;
     }
     return true;

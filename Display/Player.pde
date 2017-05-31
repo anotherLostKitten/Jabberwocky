@@ -39,7 +39,11 @@ class Player extends Item{
       }
   }
   
-  Boolean buyItem(int item){
+  int getLevel(){
+     return level; 
+  }
+  
+  Boolean buyItem(int level, int itemID){
     //item id:
     //101: Knife (default item with infinite durability)
     //102: Sword
@@ -47,8 +51,8 @@ class Player extends Item{
     //104: Axe
     //105: Potion
     //106: Spell
-    InvItem bloop = new InvItem(item);
-    int x = 0;
+    InvItem bloop = new InvItem(level, itemID); //creates inventory item
+    int x = 0; 
     while (inventory[x] == 0){
       if (x < 7){
       x++;
@@ -58,12 +62,25 @@ class Player extends Item{
         return false;
       }
     }
-    inventory[x] = bloop;
+    inventory[x] = bloop; //adds inventory item to an open inventory slot
     return true;
   }
   
-  int useItem(int slot){
-    
+  int useItem(int slot){//returns damage, if no damage returns 0;
+      if (inventory[slot].reduceDurability()){//if it doesnt break
+        if (inventory[slot].getID() == 105){//if its a potion, restore health
+            health+= inventory[slot].getRestHealth();
+        }
+        if (inventory[slot].getID() == 106){// if its a spell, restore magic
+            magic+= inventory[slot].getRestmagic();
+        }
+        return inventory[slot].getDamage(); //all invItems return damage (even 0) 
+      }
+      else{
+        inventory[slot] = null;
+        return 0;
+      }
+      
   }
   
 }
