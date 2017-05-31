@@ -34,3 +34,14 @@ May 24, 2017
 
 Theodore -- Created floor texture
 Joanna -- Displayed texture in processing
+
+
+****************************************************************
+May 26, 2017
+
+Joanna -- Stats bar
+
+****************************************************************
+May 30, 2017
+
+Joanna -- Movement slowed. Drew neater UML.
