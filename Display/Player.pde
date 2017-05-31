@@ -47,6 +47,7 @@ class Player extends Item{
     //104: Axe
     //105: Potion
     //106: Spell
+    InvItem bloop = new InvItem(item);
     int x = 0;
     while (inventory[x] == 0){
       if (x < 7){
@@ -57,30 +58,12 @@ class Player extends Item{
         return false;
       }
     }
-    inventory[x] = item;
+    inventory[x] = bloop;
     return true;
   }
   
   int useItem(int slot){
-      if ( inventory[slot] == 0){
-        return 10; // damage
-      }
-      if (inventory[slot] <= 102 && inventory[slot] >= 104){
-        reduceDurability();
-        return 50; //damage
-      }
-      if (inventory[slot] == 105){
-                reduceDurability(); //durability of 1
-                health += 100;
-      }
-      if (inventory[slot] == 106){
-              reduceDurability(); //durability of 1
-              magic  += 50; 
-      }  
-      return 0; // I do not have any idea what you want to return so placeholder
-  }
-  void reduceDurability(){
-    //placeholder what even goes here
+    
   }
   
 }
