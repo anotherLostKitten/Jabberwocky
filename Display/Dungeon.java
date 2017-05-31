@@ -162,6 +162,9 @@ public class Dungeon {
 	}
 	return k;
     }
+    public int[][] getDungeon(){
+      return d;
+    }
     public static void main(String args[]) {
 	Dungeon dung = new Dungeon( 79, 79, 7, 13 );
 	System.out.println(dung);

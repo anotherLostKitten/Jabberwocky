@@ -1,26 +1,71 @@
-ArrayList<Item> room = new ArrayList<Item>();
+int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
+PImage floor;
 Player automaton = new Player();
+PFont f;
+int olCount = 0;
 
 void setup(){
-  size(600, 600);
-  for (int x = 0; x < 620; x += 20){
-    for (int y = 0; y < 620; y += 20){
-      if (x == 0 || x == 600 || y == 0 || y == 600){
-        room.add(new Wall(x, y));
-      }
-      else{
-        room.add(new Floor(x, y));
-      }
-    }
-  }
+  size(900, 600);
+  f = createFont("Monospaced.bold", 20, true);
+  floor = loadImage("../data/floor.png");
+  frameRate(5);
 }
   void draw(){
-    for (Item thing: room){
-      if(thing.x - automaton.x <= 20 && thing.x - automaton.x >= -20 &&
-      thing.y - automaton.y <= 20 && thing.y - automaton.y >= -20){
-        thing.explored = true;
+  background(0,0,0);
+    for(int y = automaton.arrayY - 7; y <= automaton.arrayY + 7; y += 1){
+      for (int x = automaton.arrayX - 7; x <= automaton.arrayX + 7; x += 1){
+        if (y > -1 && y < room.length && x > -1 && x < room[0].length &&
+          room[y][x] >= 1){
+            noStroke();
+            fill(#5D0000);
+            image(floor, (x + 7 - automaton.arrayX) * 40, (y + 7 - automaton.arrayY) * 40, 40, 40);
+        }
       }
-      thing.display();
     }
+    fill(#5A5757);
+    rect(600, 0, 400, 600);
     automaton.display();
+    //health
+    fill(255, 128, 128);
+    rect(635, 120, 225, 20);
+    fill(255,0,0);
+    rect(635, 120, automaton.health * 3 / 4, 20);
+    //attack
+    fill(128, 255, 128);
+    rect(635, 200, 225, 20);
+    fill(0, 255, 0);
+    rect(635, 200, 225, 20);
+    //magic
+    fill(128, 128, 255);
+    rect(635, 280, 225, 20);
+    fill(0, 0, 255);
+    rect(635, 280, 225, 20);
+    //words
+    textFont(f, 20);
+    fill(255,255,255);
+    textAlign(CENTER);
+    text("Health", 750, 100);
+    text(automaton.health + " / 300", 750, 137);
+    text("Attack", 750, 180);
+    text(automaton.attack + " / 50", 750, 217);
+    text("Magic", 750, 260);
+    text(automaton.magic + " / 50", 750, 297);
+  }
+  
+  void keyPressed(){
+    if (key == CODED && olCount != frameCount){
+      if (keyCode == DOWN && room[automaton.arrayY + 1][automaton.arrayX] >= 1){
+        automaton.moveY(1);
+      }
+      else if (keyCode == UP && room[automaton.arrayY - 1][automaton.arrayX] >= 1){
+        automaton.moveY(-1);
+      }
+      else if (keyCode == LEFT && room[automaton.arrayY][automaton.arrayX - 1] >= 1){
+        automaton.moveX(-1);
+      }
+      else if (keyCode == RIGHT && room[automaton.arrayY][automaton.arrayX + 1] >= 1){
+        automaton.moveX(1);
+      }
+    }
+    olCount = frameCount;
   }
