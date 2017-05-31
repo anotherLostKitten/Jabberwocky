@@ -73,10 +73,14 @@ class Player extends Item{
                 reduceDurability(); //durability of 1
                 health += 100;
       }
-      if (inventory[slot] == 106]{
+      if (inventory[slot] == 106){
               reduceDurability(); //durability of 1
               magic  += 50; 
       }  
+      return 0; // I do not have any idea what you want to return so placeholder
+  }
+  void reduceDurability(){
+    //placeholder what even goes here
   }
   
 }

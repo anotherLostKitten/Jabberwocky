@@ -2,6 +2,7 @@ int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
 PImage floor;
 Player automaton = new Player();
 PFont f;
+int olCount = 0;
 
 void setup(){
   size(900, 600);
@@ -52,7 +53,7 @@ void setup(){
   }
   
   void keyPressed(){
-    if (key == CODED){
+    if (key == CODED && olCount != frameCount){
       if (keyCode == DOWN && room[automaton.arrayY + 1][automaton.arrayX] >= 1){
         automaton.moveY(1);
       }
@@ -66,4 +67,5 @@ void setup(){
         automaton.moveX(1);
       }
     }
+    olCount = frameCount;
   }
