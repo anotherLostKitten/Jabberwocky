@@ -4,7 +4,7 @@ class Player extends Item{
   int health;
   int level;
   int magic;
-  int[] inventory;
+  InvItem[] inventory;
   Player(){
     super(280, 280, #FFFFFF);
     explored = true;
@@ -13,8 +13,8 @@ class Player extends Item{
     health = 300;
     level = 1;
     magic = 50;
-    inventory = new int[7];
-    inventory[0] = 1;  //sets the first slot as knife
+    inventory = new InvItem[7];
+    inventory[0] = new InvItem(getLevel(), 101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
     while (room[arrayY][arrayX] < 1){
@@ -53,7 +53,7 @@ class Player extends Item{
     //106: Spell
     InvItem bloop = new InvItem(level, itemID); //creates inventory item
     int x = 0; 
-    while (inventory[x] == 0){
+    while (inventory[x] == null){
       if (x < 7){
       x++;
       }
@@ -72,7 +72,7 @@ class Player extends Item{
             health+= inventory[slot].getRestHealth();
         }
         if (inventory[slot].getID() == 106){// if its a spell, restore magic
-            magic+= inventory[slot].getRestmagic();
+            magic+= inventory[slot].getRestMagic();
         }
         return inventory[slot].getDamage(); //all invItems return damage (even 0) 
       }
