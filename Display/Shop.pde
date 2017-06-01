@@ -1,23 +1,23 @@
 class Shop extends Item{
-                private int potionStock;
-                private int spellStock;
-                private int weaponStock;
+ private int potionStock;
+ private int spellStock;
+  private int weaponStock;
 
               
                 
-                public Shop(int x, int y){
-                   super(x, y, #A7A320);
-                   potionStock = (int)(Math.random()*5); 
-                   spellStock = (int)(Math.random()*5); 
-                   weaponStock = (int)(Math.random()*5); 
-                }
-                public Boolean sellPotion(){
-                  if (potionStock > 0){
-                  potionStock --;
-             return true;
-            }
-              return false;
-                  }
+ public Shop(int x, int y){
+super(x, y, #A7A320);
+potionStock = (int)(Math.random()*5); 
+  spellStock = (int)(Math.random()*5); 
+ weaponStock = (int)(Math.random()*5); 
+   }
+public Boolean sellPotion(){
+if (potionStock > 0){
+ potionStock --;
+return true;
+    }
+   return false;
+        }
                 
                   public Boolean sellSpell(){
                     if (spellStock > 0){

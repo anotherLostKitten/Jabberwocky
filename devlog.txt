@@ -45,3 +45,10 @@ Joanna -- Stats bar
 May 30, 2017
 
 Joanna -- Movement slowed. Drew neater UML.
+James -- worked on inventory
+
+****************************************************************
+May 31, 2017
+
+Joanna -- 
+James -- worked on new inventory item class and item usage for player
