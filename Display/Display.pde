@@ -6,19 +6,24 @@ int olCount = 0;
 
 void setup(){
   size(900, 600);
+  imageMode(CENTER);
   f = createFont("Monospaced.bold", 20, true);
   floor = loadImage("../data/floor.png");
   frameRate(5);
 }
   void draw(){
   background(0,0,0);
+  noStroke();
     for(int y = automaton.arrayY - 7; y <= automaton.arrayY + 7; y += 1){
       for (int x = automaton.arrayX - 7; x <= automaton.arrayX + 7; x += 1){
         if (y > -1 && y < room.length && x > -1 && x < room[0].length &&
-          room[y][x] >= 1){
-            noStroke();
-            fill(#5D0000);
-            image(floor, (x + 7 - automaton.arrayX) * 40, (y + 7 - automaton.arrayY) * 40, 40, 40);
+          room[y][x] >= 1){ 
+            //pushMatrix();
+            //translate(450, 300);
+            //rotate(HALF_PI);
+            image(floor, (x + 7 - automaton.arrayX) * 40 + 20,
+            (y + 7 - automaton.arrayY) * 40 + 20, 40, 40);
+            //popMatrix();
         }
       }
     }
