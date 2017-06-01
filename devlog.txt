@@ -52,3 +52,9 @@ May 31, 2017
 
 Joanna -- 
 James -- worked on new inventory item class and item usage for player
+Theodore -- Added all the room templates & some images
+
+****************************************************************
+June 1, 2017
+
+Theodore -- Implemented template searching
