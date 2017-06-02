@@ -1,6 +1,6 @@
 PLAN
 
-05/25
+05/31
 
 Most crucial:
 - Maze creation. (Finished)
