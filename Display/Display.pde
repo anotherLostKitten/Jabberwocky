@@ -2,7 +2,7 @@ int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
 PImage floor;
 Player automaton = new Player();
 PFont f;
-int olCount = 0;
+int olCount = 0;//movement purposes
 
 void setup(){
   size(900, 600);
@@ -18,11 +18,12 @@ void setup(){
       for (int x = automaton.arrayX - 7; x <= automaton.arrayX + 7; x += 1){
         if (y > -1 && y < room.length && x > -1 && x < room[0].length &&
           room[y][x] >= 1){ 
+            int horhor = (x + 7 - automaton.arrayX) * 40 + 20;
+            int hihi = (y + 7 - automaton.arrayY) * 40 + 20;
             //pushMatrix();
-            //translate(450, 300);
             //rotate(HALF_PI);
-            image(floor, (x + 7 - automaton.arrayX) * 40 + 20,
-            (y + 7 - automaton.arrayY) * 40 + 20, 40, 40);
+            //translate(hihi - horhor, -hihi - horhor);
+            image(floor, horhor, hihi, 40, 40);
             //popMatrix();
         }
       }

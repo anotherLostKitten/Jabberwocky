@@ -7,7 +7,6 @@ class Player extends Item{
   InvItem[] inventory;
   Player(){
     super(280, 280, #FFFFFF);
-    explored = true;
     coin = 0;
     attack = 50;
     health = 300;
