@@ -16,8 +16,8 @@ public class Monster extends Item{
 	arrayX = x;
 	arrayY = y;
 int[] directions = new int[4];
-for(int x = 0; x < 3; x++){
-   directions[x] = x; 
+for(int X = 0; X < 3; X++){
+   directions[X] = X; 
 }
     }
 
@@ -34,7 +34,7 @@ for(int x = 0; x < 3; x++){
     
     public void navigate(){
       for(int x : directions){
-          swap( (int)(Math.random(3)) , (int)(Math.random(3))); 
+          swap( (int)(random(3)) , (int)(random(3))); 
       }
       
       //once you find space that is not a wall, go to that space
