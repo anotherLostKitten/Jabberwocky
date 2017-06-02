@@ -172,9 +172,6 @@ public class Dungeon {
 	}
     }
     private void templify( int[] r ) {
-	for ( int i : r )
-	    System.out.print(i + " ");
-	System.out.println();
 	if( r[2] > r[3] ) { // transpose
 	    int[][] room = template(r[3], r[2]);
 	    for ( int i = 0; i < r[3]; i++ )
@@ -190,7 +187,7 @@ public class Dungeon {
     public static int[][] template( int r, int c ) {
 	try {
 	    int[][] room = new int[r][c];
-	    Scanner sc = new Scanner(new File( "data/" + r + "x" + c));
+	    Scanner sc = new Scanner(new File( System.getProperty("user.dir") + "/data/" + r + "x" + c + ".txt"));
 	    int i = 0;
 	    while( sc.hasNextLine() ) {
 		String[] row = sc.nextLine().split(" ");
@@ -211,10 +208,7 @@ public class Dungeon {
 	String k = "";
 	for ( int[] q : d ) {
 	    for ( int z : q )
-		 if ( z <= 0 )
-		     k += "#";
-		 else
-		     k += " "; 
+		k += z + " "; 
 	    k += "\n";
 	}
 	return k;
@@ -223,13 +217,8 @@ public class Dungeon {
       return d;
     }
     public static void main(String args[]) {
+	System.out.println(System.getProperty("user.dir"));
 	Dungeon dung = new Dungeon(79,79,5,11);
-	int[][] q = Dungeon.template(5,11);
-	for ( int[] i : q ) {
-	    for ( int j : i )
-		System.out.print(j + " ");
-	    System.out.println();
-	}
 	System.out.println(dung);
     }
 }
