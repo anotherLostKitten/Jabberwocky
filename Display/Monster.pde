@@ -15,7 +15,7 @@ public class Monster extends Item{
 	attack = 20 + level * (int)(Math.random()*20);
 	arrayX = x;
 	arrayY = y;
-int[] directions = new int[4];
+  directions = new int[4];
 for(int X = 0; X < 3; X++){
    directions[X] = X; 
 }
