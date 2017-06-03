@@ -19,27 +19,27 @@ return true;
    return false;
         }
                 
-                  public Boolean sellSpell(){
-                    if (spellStock > 0){
-                     spellStock --;
-                     return true;
+public Boolean sellSpell(){
+     if (spellStock > 0){
+     spellStock --;
+       return true;
               }
-                return false;
+       return false;
                   }
                 
-                  public Boolean sellWeapon(){
-                    if (weaponStock > 0){
-                    weaponStock --;
-                  return true;  
+   public Boolean sellWeapon(){
+        if (weaponStock > 0){
+       weaponStock --;
+        return true;  
                 }
-                    return false;
+         return false;
                   }
                 
-                  public Boolean outOfStock(){
-                    if (potionStock == 0 && weaponStock == 0 && spellStock ==0){
-                    return true;}
-                    else {
-                       return false; 
+    public Boolean outOfStock(){
+     if (potionStock == 0 && weaponStock == 0 && spellStock ==0){
+        return true;}
+      else {
+     return false; 
                     }
                   }
                 
