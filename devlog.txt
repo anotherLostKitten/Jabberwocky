@@ -45,3 +45,16 @@ Joanna -- Stats bar
 May 30, 2017
 
 Joanna -- Movement slowed. Drew neater UML.
+James -- worked on inventory
+
+****************************************************************
+May 31, 2017
+
+James -- worked on new inventory item class and item usage for player
+Theodore -- Added all the room templates & some images
+
+****************************************************************
+June 1, 2017
+
+Theodore -- Implemented template searching
+Joanna -- Arranged Display.pde so that images could be more easily rotated

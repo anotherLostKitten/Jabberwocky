@@ -4,17 +4,16 @@ class Player extends Item{
   int health;
   int level;
   int magic;
-  int[] inventory;
+  InvItem[] inventory;
   Player(){
     super(280, 280, #FFFFFF);
-    explored = true;
     coin = 0;
     attack = 50;
     health = 300;
     level = 1;
     magic = 50;
-    inventory = new int[7];
-    inventory[0] = 1;  //sets the first slot as knife
+    inventory = new InvItem[7];
+    inventory[0] = new InvItem(getLevel(), 101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
     while (room[arrayY][arrayX] < 1){
@@ -39,7 +38,11 @@ class Player extends Item{
       }
   }
   
-  Boolean buyItem(int item){
+  int getLevel(){
+     return level; 
+  }
+  
+  Boolean buyItem(int level, int itemID){
     //item id:
     //101: Knife (default item with infinite durability)
     //102: Sword
@@ -47,8 +50,9 @@ class Player extends Item{
     //104: Axe
     //105: Potion
     //106: Spell
-    int x = 0;
-    while (inventory[x] == 0){
+    InvItem bloop = new InvItem(level, itemID); //creates inventory item
+    int x = 0; 
+    while (inventory[x] == null){
       if (x < 7){
       x++;
       }
@@ -57,30 +61,25 @@ class Player extends Item{
         return false;
       }
     }
-    inventory[x] = item;
+    inventory[x] = bloop; //adds inventory item to an open inventory slot
     return true;
   }
   
-  int useItem(int slot){
-      if ( inventory[slot] == 0){
-        return 10; // damage
+  int useItem(int slot){//returns damage, if no damage returns 0;
+      if (inventory[slot].reduceDurability()){//if it doesnt break
+        if (inventory[slot].getID() == 105){//if its a potion, restore health
+            health+= inventory[slot].getRestHealth();
+        }
+        if (inventory[slot].getID() == 106){// if its a spell, restore magic
+            magic+= inventory[slot].getRestMagic();
+        }
+        return inventory[slot].getDamage(); //all invItems return damage (even 0) 
       }
-      if (inventory[slot] <= 102 && inventory[slot] >= 104){
-        reduceDurability();
-        return 50; //damage
+      else{
+        inventory[slot] = null;
+        return 0;
       }
-      if (inventory[slot] == 105){
-                reduceDurability(); //durability of 1
-                health += 100;
-      }
-      if (inventory[slot] == 106){
-              reduceDurability(); //durability of 1
-              magic  += 50; 
-      }  
-      return 0; // I do not have any idea what you want to return so placeholder
-  }
-  void reduceDurability(){
-    //placeholder what even goes here
+      
   }
   
 }

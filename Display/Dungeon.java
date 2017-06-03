@@ -2,17 +2,24 @@ import java.util.Random;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Dungeon {
     private int[][] d;
     public Dungeon(int rows, int coll, int rmin, int rmax) {
 	d = new int[rows][coll];
+	List<int[]> rooms = new LinkedList<int[]>();
 	int placeNumber = 1;
 	// generate rooms
 	for ( int i = 0; i < 200; i++ ) {
 	    int rowC = rOdd(1, rows), colC = rOdd(1, coll), rRow = rOdd(rmin, rmax), rCol = rOdd(rmin, rmax);
-	    placeNumber += roomify(rowC, colC, rRow, rCol, placeNumber);
-	    
+	    if ( roomify(rowC, colC, rRow, rCol, placeNumber) ) {
+		placeNumber++;
+		rooms.add(new int[]{rowC, colC, rRow, rCol});
+	    }
 	}
 	// generate maze inbetween
 	for ( int i = 1; i < rows; i += 2 ) 
@@ -36,7 +43,7 @@ public class Dungeon {
 	    int q = r.nextInt(con.size());
 	    int[] tcon = con.get(q);
 	    if ( visit.contains(tcon[2]) ^ visit.contains(tcon[3]) ) {
-		d[tcon[0]][tcon[1]] = placeNumber;
+		d[tcon[0]][tcon[1]] = 5; // door at 5
 		if ( visit.contains(tcon[2]) )
 		    visit.add(tcon[3]);
 		else
@@ -47,25 +54,39 @@ public class Dungeon {
 	// -- add some extra connections
 	for ( int i = 0; i < con.size() / 50; i++ ) {
 	    int q = r.nextInt(con.size());
-	    d[con.get(q)[0]][con.get(q)[1]] = placeNumber;
+	    d[con.get(q)[0]][con.get(q)[1]] = 2; // door at 5
 	    con.remove(q);
 	}
 	// remove dead ends
 	for ( int i = 1; i < rows - 1; i++ )
 	    for ( int j = 1; j < coll - 1; j++ )
 		rde(i,j);
+	// floorify maze
+	for ( int i = 1; i < rows - 1; i++ )
+	    for ( int j = 1; j < coll - 1; j++ )
+		if ( d[i][j] > rooms.size() )
+		    if ( r.nextInt(5) == 4 )
+			d[i][j] = r.nextInt(3) + 1;
+		    else
+			d[i][j] = 1;
+	// room templates
+	while ( ! rooms.isEmpty() ) {
+	    templify(rooms.get(0));
+	    
+	    rooms.remove(0);
+	}
     }
-    private int roomify( int rs, int cs, int rl, int cl, int rn) {
+    private boolean roomify( int rs, int cs, int rl, int cl, int rn) {
 	if ( rs + rl >= d.length || cs + cl >= d[0].length )
-	    return 0;
+	    return false;
 	for ( int j = rs; j < rl + rs; j++ ) 
 	    for ( int k = cs; k < cs + cl; k++ )
 		if ( d[j][k] > 0 )
-		    return 0;
+		    return false;
 	for ( int j = rs; j < rs + rl; j++ ) 
 	    for ( int k = cs; k < cs + cl; k++ )
 		d[j][k] = rn;
-	return 1;
+	return true;
     }
     private void mazeify( int rowStart, int colStart, int mn ) {
 	Stack<int[]> cur = new Stack<int[]>();
@@ -150,14 +171,44 @@ public class Dungeon {
 	    rde(rNext, cNext);
 	}
     }
+    private void templify( int[] r ) {
+	if( r[2] > r[3] ) { // transpose
+	    int[][] room = template(r[3], r[2]);
+	    for ( int i = 0; i < r[3]; i++ )
+		for ( int j = 0; j < r[2]; j++ )
+		    d[r[0] + j][r[1] + i] = room[i][j];
+	} else { // no transpose
+	    int[][] room = template(r[2], r[3]);
+	    for ( int i = 0; i < r[2]; i++ )
+		for ( int j = 0; j < r[3]; j++ )
+		    d[r[0] + i][r[1] + j] = room[i][j];
+	}
+    } 
+    public static int[][] template( int r, int c ) {
+	try {
+	    int[][] room = new int[r][c];
+	    Scanner sc = new Scanner(new File( System.getProperty("user.dir") + "/data/" + r + "x" + c + ".txt"));
+	    int i = 0;
+	    while( sc.hasNextLine() ) {
+		String[] row = sc.nextLine().split(" ");
+		for ( int j = 0; j < c; j++ ) {
+		    room[i][j] = Integer.parseInt(row[j]);
+		}
+		i++;
+	    }
+	    return room;
+	} catch( FileNotFoundException e ) {
+	    e.printStackTrace();
+	    return null;
+	}
+    }
+    
+    
     public String toString() {
 	String k = "";
 	for ( int[] q : d ) {
 	    for ( int z : q )
-		 if ( z <= 0 )
-		     k += "#";
-		 else
-		     k += " "; 
+		k += z + " "; 
 	    k += "\n";
 	}
 	return k;
@@ -166,7 +217,56 @@ public class Dungeon {
       return d;
     }
     public static void main(String args[]) {
-	Dungeon dung = new Dungeon( 79, 79, 7, 13 );
+	System.out.println(System.getProperty("user.dir"));
+	Dungeon dung = new Dungeon(79,79,5,11);
 	System.out.println(dung);
     }
 }
+/*
+  5x5   | Dungeon cell 
+  5x7   | Carpet room
+  5x9   | Torture room
+  5x11  | Wine room
+  7x7   | church room
+  7x9   | Kitchen
+  7x11  | Barracks
+  9x9   | Bath room
+  9x11  | Throne room
+  11x11 | Feasting hall
+  
+  1 floor 
+  2 torch floor 
+  3 puddle floor 
+  4 shrubbery floor 
+  5 door 
+  6 bedTop 
+  7 bedBottom 
+  8 toilet
+  9 carpetEdge
+  10 carpetCentre
+  11 table
+  12 tableTools
+  13 rackLeft
+  14 rackRight
+  15 wineCaskRight
+  16 wineCaskLeft
+  17 wineCaskUpright
+  18 altar
+  19 roseTop
+  20 roseLeft
+  21 roseRight
+  22 roseBottom
+  23 roseCentre
+  24 furnace
+  25 cuboard
+  26 bathNE
+  27 bathSE
+  28 bathSW
+  29 bathNW
+  30 throne
+  31 steps
+  32 tableFood
+  33 fancyTable
+  34 fancyFood
+  
+ */
