@@ -30,7 +30,7 @@ void setup(){
             //pushMatrix();
             //rotate(HALF_PI);
             //translate(hihi - horhor, -hihi - horhor);
-            image(textures[room[x][y]], horhor, hihi, 40, 40);
+            image(textures[room[y][x]], horhor, hihi, 40, 40);
             //popMatrix();
         }
       }
