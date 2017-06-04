@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 
 public class Dungeon {
     private int[][] d;
-    public Dungeon(int rows, int coll, int rmin, int rmax) {
+    private String dataPath;
+    public Dungeon(int rows, int coll, int rmin, int rmax, String dp) {
+  dataPath = dp;
 	d = new int[rows][coll];
 	List<int[]> rooms = new LinkedList<int[]>();
 	int placeNumber = 1;
@@ -64,9 +66,10 @@ public class Dungeon {
 	// floorify maze
 	for ( int i = 1; i < rows - 1; i++ )
 	    for ( int j = 1; j < coll - 1; j++ )
-		if ( d[i][j] > rooms.size() )
-		    if ( r.nextInt(5) == 4 )
-			d[i][j] = r.nextInt(3) + 1;
+		if ( d[i][j] > 0 )
+		    if ( r.nextInt(5) == 4 ) {
+			d[i][j] = r.nextInt(3) + 2;
+}
 		    else
 			d[i][j] = 1;
 	// room templates
@@ -184,10 +187,10 @@ public class Dungeon {
 		    d[r[0] + i][r[1] + j] = room[i][j];
 	}
     } 
-    public static int[][] template( int r, int c ) {
+    public int[][] template( int r, int c ) {
 	try {
 	    int[][] room = new int[r][c];
-	    Scanner sc = new Scanner(new File( System.getProperty("user.dir") + "/data/" + r + "x" + c + ".txt"));
+	    Scanner sc = new Scanner(new File( dataPath + "data" + File.separator + r + "x" + c + ".txt"));
 	    int i = 0;
 	    while( sc.hasNextLine() ) {
 		String[] row = sc.nextLine().split(" ");
@@ -213,13 +216,14 @@ public class Dungeon {
 	}
 	return k;
     }
-    public int[][] getDungeon(){
+    public int[][] getDungeon(){  
+      System.out.println(toString());
       return d;
     }
     public static void main(String args[]) {
-	System.out.println(System.getProperty("user.dir"));
-	Dungeon dung = new Dungeon(79,79,5,11);
-	System.out.println(dung);
+        
+	//Dungeon dung = new Dungeon(79,79,5,11);
+	//System.out.println(dung);
     }
 }
 /*
@@ -258,7 +262,7 @@ public class Dungeon {
   22 roseBottom
   23 roseCentre
   24 furnace
-  25 cuboard
+  25 cupboard
   26 bathNE
   27 bathSE
   28 bathSW
@@ -269,4 +273,6 @@ public class Dungeon {
   33 fancyTable
   34 fancyFood
   
+  
+  "floor floorTorch floorPuddle floorShrubbery door bedTop bedBottom toilet carpetEdge carpetCentre table tableTools rackLeft rackRight wineCaskRight wineCaskLeft wineCaskUpright altar roseTop roseLeft roseRight roseBottom roseCentre furnace cupboard bathNE bathSE bathSW bathNW throne steps tableFood fancyTable fancyFood"
  */

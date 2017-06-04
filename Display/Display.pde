@@ -1,14 +1,21 @@
-int[][] room = (new Dungeon(79, 79, 5, 11)).getDungeon();
+int[][] room;
+String[] textureNames = { 
+"missing", "floor", "floorTorch", "floorPuddle", "floorShrubbery", "door", "bedTop", "bedBottom", "toilet", "carpetEdge", "carpetCentre", "table", "tableTools", "rackLeft", "rackRight", "wineCaskRight", "wineCaskLeft", "wineCaskUpright", "altar", "roseTop", "roseLeft", "roseRight", "roseBottom", "roseCentre", "furnace", "cupboard", "bathNE", "bathSE", "bathSW", "bathNW", "throne", "steps", "tableFood", "fancyTable", "fancyFood" };
+PImage[] textures = new PImage[textureNames.length];
 PImage floor;
-Player automaton = new Player();
+Player automaton;
 PFont f;
 int olCount = 0;//movement purposes
 
 void setup(){
+  room = (new Dungeon(79, 79, 5, 11, sketchPath(""))).getDungeon();
+  automaton = new Player();
   size(900, 600);
   imageMode(CENTER);
   f = createFont("Monospaced.bold", 20, true);
-  floor = loadImage("../data/floor.png");
+  for (int i = 0; i < textureNames.length; i++ ) {
+     textures[i] = loadImage("../data/" + textureNames[i] + ".png"); 
+  }
   frameRate(5);
 }
   void draw(){
@@ -23,7 +30,7 @@ void setup(){
             //pushMatrix();
             //rotate(HALF_PI);
             //translate(hihi - horhor, -hihi - horhor);
-            image(floor, horhor, hihi, 40, 40);
+            image(textures[room[x][y]], horhor, hihi, 40, 40);
             //popMatrix();
         }
       }
