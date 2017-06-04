@@ -217,7 +217,6 @@ public class Dungeon {
 	return k;
     }
     public int[][] getDungeon(){  
-      System.out.println(toString());
       return d;
     }
     public static void main(String args[]) {
