@@ -11,7 +11,7 @@ class Player extends Item{
     x = 280;
     y = 280;
     inventory = new InvItem[4];
-    inventory[0] = new InvItem(1, 101);  //sets the first slot as knife
+    inventory[0] = new InvItem(101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
     while (room[arrayY][arrayX] < 1){

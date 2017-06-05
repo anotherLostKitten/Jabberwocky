@@ -5,8 +5,8 @@ public class Monster extends Item {
 
   public Monster(int x, int y) {
     super(x, y, #FFFFFF);
-    health = 50 +  random(20);
-    attack = 10 +  random(16);
+    health = 50 +  (int) random(20);
+    attack = 10 +  (int) random(16);
   }
 
 
@@ -14,7 +14,6 @@ public class Monster extends Item {
     health -= damage;
     return health < 0;
   }
-  public  
     public void move(int r, int c) {
       arrayX+=r;
       arrayY+=c;

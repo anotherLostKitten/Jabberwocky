@@ -7,8 +7,8 @@ class Item {
   int arrayY;
   Item(int row, int col, color whatever){
     size = 40;
-    arrayX = hori;
-    arrayY = vert;
+    arrayX = row;
+    arrayY = col;
     col = whatever;
   }
   void display(){
