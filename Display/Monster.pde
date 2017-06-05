@@ -11,8 +11,8 @@ public class Monster extends Item{
       super(x, y, #FFFFFF);
 	state = 1;
 	level = lvl;
-	health = 50 + level * (int)(Math.random()*20);
-	attack = 20 + level * (int)(Math.random()*20);
+	health = 50 +  (int)(Math.random()*20);
+	attack = 20 +  (int)(Math.random()*20);
 	arrayX = x;
 	arrayY = y;
   directions = new int[4];

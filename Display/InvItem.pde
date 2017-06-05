@@ -12,32 +12,32 @@ public class InvItem{
   int damage;
   int idNum;
   
-  public InvItem(int level, int ID){
+  public InvItem(int ID){
     if (ID == 101){
       idNum = 101;
        durability = -100;//infinite use
-       damage = 10 + 10*level;}
+       damage = 10 + 10;}
     if (ID == 102){
       idNum = 102;
-       durability = 5 + 3*level;
-       damage = 50 + 5*level;}
+       durability = 5 + 3;
+       damage = 50 + 5;}
     if (ID == 103){
       idNum = 103;
-       durability = 10 + 2*level;
-       damage = 30 + 20*level;}
+       durability = 10 + 2;
+       damage = 30 + 20;}
     if (ID == 104){
       idNum = 104;
-       durability = 15 + level;
-       damage = 20 + 25*level ;}    
+       durability = 15;
+       damage = 20 + 25;}    
     if (ID == 105){
       idNum = 105;
        durability = 1;
-       restoreHealth = 150 + 10*level;
+       restoreHealth = 150 + 10;
       damage =0;}
     if (ID == 106){
       idNum = 106;
        durability = 1;
-       restoreMagic = 25 + 10*level;
+       restoreMagic = 25 + 10;
       damage =0;}  
        }
        
