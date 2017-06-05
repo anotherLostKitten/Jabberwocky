@@ -6,6 +6,7 @@ PImage floor;
 Player automaton;
 PFont f;
 int olCount = 0;//movement purposes
+Monster[] enemy = new Monster[32];
 
 void setup(){
   room = (new Dungeon(79, 79, 5, 11, sketchPath(""))).getDungeon();
@@ -15,6 +16,15 @@ void setup(){
   f = createFont("Monospaced.bold", 20, true);
   for (int i = 0; i < textureNames.length; i++ ) {
      textures[i] = loadImage("../data/" + textureNames[i] + ".png"); 
+  }
+  for (int monmon = 0; monmon < enemy.length; monmon += 1){
+    int xmon = (int) random(room[0].length);
+    int ymon = (int) random(room.length);
+    while (room[ymon][xmon] < 1){
+      xmon = (int) random(room[0].length);
+      ymon = (int) random(room.length);
+    }
+    enemy[monmon] = new Monster(xmon, ymon);
   }
   frameRate(5);
 }
@@ -34,6 +44,9 @@ void setup(){
             //popMatrix();
         }
       }
+    }
+    for (Monster mon: enemy) {
+      mon.display();
     }
     fill(#5A5757);
     rect(600, 0, 400, 600);
