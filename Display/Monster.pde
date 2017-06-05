@@ -1,51 +1,22 @@
-public class Monster extends Item{
-    
-    private int level;
-    private int health;
-    private int attack;
-    private int state;
-    private int[] directions;
-    
-    
-    public Monster(int lvl, int x, int y){
-      super(x, y, #FFFFFF);
-	state = 1;
-	level = lvl;
-	health = 50 +  (int)(Math.random()*20);
-	attack = 20 +  (int)(Math.random()*20);
-	arrayX = x;
-	arrayY = y;
-  directions = new int[4];
-for(int X = 0; X < 3; X++){
-   directions[X] = X; 
-}
-    }
+public class Monster extends Item {
 
-    public void die(){
-	state = 0;//monster disappears and player gains a coin
-    }
-    
-    public void setHealth(int damage){
-	health = health - damage;
-	if (health < 0){
-	    die();
-	}
-    }
-    
-    public void navigate(){
-      for(int x : directions){
-          swap( (int)(random(3)) , (int)(random(3))); 
-      }
-      
-      //once you find space that is not a wall, go to that space
-      
-    }
-    
-  public void swap(int a , int b  ){
-      int temp = directions[a];
-      directions[a] = directions[b];
-      directions[b] = temp; 
+  private int health;
+  private int attack;
+
+  public Monster(int x, int y) {
+    super(x, y, #FFFFFF);
+    health = 50 +  random(20);
+    attack = 10 +  random(16);
   }
-       
-    
+
+
+  public boolean setHealth(int damage) {
+    health -= damage;
+    return health < 0;
+  }
+  public  
+    public void move(int r, int c) {
+      arrayX+=r;
+      arrayY+=c;
+  }
 }

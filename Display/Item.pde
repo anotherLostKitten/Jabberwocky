@@ -5,10 +5,10 @@ class Item {
   color col;
   int arrayX;
   int arrayY;
-  Item(int hori, int vert, color whatever){
+  Item(int row, int col, color whatever){
     size = 40;
-    x = hori;
-    y = vert;
+    arrayX = hori;
+    arrayY = vert;
     col = whatever;
   }
   void display(){
