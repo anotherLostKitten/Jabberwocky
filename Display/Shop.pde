@@ -1,4 +1,4 @@
-class Shop extends Item{
+/*class Shop extends Item{
  private int potionStock;
  private int spellStock;
   private int weaponStock;
@@ -44,4 +44,4 @@ public Boolean sellSpell(){
                   }
                 
                 
-  }
+  }*/

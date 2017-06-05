@@ -1,24 +1,16 @@
 class Player extends Item{
-  int coin;
-  int attack; // attack that increases based on level
-  int health;  // current health
-  int healthBar; // total health (determined by the level)
-  int level;
-  int experience; // current experience 
-  int experienceBar;  //total experience necessary to level up
-  int magic;      // current magic  
-  int magicBar;    // total magic (determined by the level)
+  int attack;
+  int health; 
+  int magic;     
   InvItem[] inventory;
   Player(){
     super(280, 280, #FFFFFF);
-    coin = 0;
     attack = 50;
     health = 300;
-    healthBar = 300;
     level = 1;
     magic = 50;
-    magicBar = 50;
-    inventory = new InvItem[7];
+
+    inventory = new InvItem[4];
     inventory[0] = new InvItem(1, 101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
@@ -36,32 +28,8 @@ class Player extends Item{
     arrayY += thing;
   }
   
-  void addExperience( int x){
-     experience += x;
-     if (experience == experienceBar){
-       int temp = experienceBar - experience; 
-       levelUp();
-       experience = temp;
-     }
-  }
-  
-  void levelUp(){
-   level += 1;
-   healthBar += 20;
-   magicBar += 20;
-   attack += 20;
-  }
-  
-  void setCoin(int i){
-      coin += i;
-      if (coin <0){ //if you're in debt
-         coin -= i;  //take back your money 
-         System.out.println("oops. can't buy that. you're broke");
-      }
-  }
- 
-  
-  Boolean buyItem(int level, int itemID){
+
+  Boolean getItem(int level, int itemID){
     //item id:
     //101: Knife (default item with infinite durability)
     //102: Sword
