@@ -4,11 +4,12 @@ class Player extends Item{
   int magic;     
   InvItem[] inventory;
   Player(){
-    super(280, 280, #FFFFFF);
+    super(0, 0, #FFFFFF);
     attack = 50;
     health = 300;
     magic = 50;
-
+    x = 280;
+    y = 280;
     inventory = new InvItem[4];
     inventory[0] = new InvItem(1, 101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
