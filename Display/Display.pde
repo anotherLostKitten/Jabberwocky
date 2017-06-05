@@ -45,6 +45,9 @@ void setup(){
         }
       }
     }
+    for (Monster mon: enemy) {
+      mon.display();
+    }
     fill(#5A5757);
     rect(600, 0, 400, 600);
     automaton.display();
