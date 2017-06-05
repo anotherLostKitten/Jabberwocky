@@ -7,7 +7,6 @@ class Player extends Item{
     super(280, 280, #FFFFFF);
     attack = 50;
     health = 300;
-    level = 1;
     magic = 50;
 
     inventory = new InvItem[4];
@@ -29,7 +28,7 @@ class Player extends Item{
   }
   
 
-  Boolean getItem(int level, int itemID){
+  Boolean getItem(int itemID){
     //item id:
     //101: Knife (default item with infinite durability)
     //102: Sword
@@ -37,7 +36,7 @@ class Player extends Item{
     //104: Axe
     //105: Potion
     //106: Spell
-    InvItem bloop = new InvItem(level, itemID); //creates inventory item
+    InvItem bloop = new InvItem(itemID); //creates inventory item
     int x = 0; 
     while (inventory[x] == null){
       if (x < 7){
