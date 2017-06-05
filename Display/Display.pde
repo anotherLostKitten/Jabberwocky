@@ -20,7 +20,7 @@ void setup(){
   for (int monmon = 0; monmon < enemy.length; monmon += 1){
     int xmon = (int) random(room[0].length);
     int ymon = (int) random(room.length);
-    while (room[ymon][xmon] < 1){
+    while (room[ymon][xmon] < 1 || (xmon == automaton.arrayX && ymon == automaton.arrayY)){
       xmon = (int) random(room[0].length);
       ymon = (int) random(room.length);
     }
@@ -46,6 +46,7 @@ void setup(){
       }
     }
     for (Monster mon: enemy) {
+      mon.placeTo(automaton);
       mon.display();
     }
     fill(#5A5757);

@@ -16,7 +16,7 @@ class Item {
     rect(x, y, size, size);
   }
   void placeTo(Item thing){
-    this.x = arrayX + 7 - thing.arrayX;
-    this.y = arrayY + 7 - thing.arrayY;
+    this.x = (arrayX + 7 - thing.arrayX)* 40;
+    this.y = (arrayY + 7 - thing.arrayY) * 40;
   }
 }

@@ -4,7 +4,7 @@ class Player extends Item{
   int magic;     
   InvItem[] inventory;
   Player(){
-    super(0, 0, #FFFFFF);
+    super(0, 0, #0009AA);
     attack = 50;
     health = 300;
     magic = 50;
