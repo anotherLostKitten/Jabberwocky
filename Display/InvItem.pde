@@ -12,24 +12,24 @@ public class InvItem{
   int idNum;
   
   public InvItem(int ID){
-    if (ID == 101){
-      idNum = 101;
+    if (ID == 0){
+      idNum = 0;
        durability = -100;//infinite use
        damage = 10;}
-    if (ID == 102){
-      idNum = 102;
+    if (ID == 1){
+      idNum = 1;
        durability = 5;
        damage = 50;}
-    if (ID == 103){
-      idNum = 103;
+    if (ID == 2){
+      idNum = 2;
        durability = 10;
        damage = 30;}
-    if (ID == 104){
-      idNum = 104;
+    if (ID == 3){
+      idNum = 3;
        durability = 15;
        damage = 20;}    
-    if (ID == 105){
-      idNum = 105;
+    if (ID == 4){
+      idNum = 4;
        durability = 1;
        restoreHealth = 150;
       damage =0;}
