@@ -63,7 +63,7 @@ class Player extends Item {
 
   void useItem(int slot) {//returns damage, if no damage returns 0;
     if (inventory[slot].reduceDurability()) {//if it doesnt break
-      if (inventory[slot].getID() == 105) {//if its a potion, restore health
+      if (inventory[slot].getID() == 4) {//if its a potion, restore health
         health+= 150;
         if (health > 300){
          health = 300; 
