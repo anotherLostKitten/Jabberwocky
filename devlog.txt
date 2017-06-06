@@ -72,4 +72,4 @@ Theodore -- more textures, proper rotation for transposed rooms
 **************************************************************
 June 6, 2017
 
-Theodore -- textures for player, monster, items, display for them
+Theodore -- textures for player, monster, items, display for them. Also created monster combat system, movement, item floor pick ups, item floor pick up effects.
