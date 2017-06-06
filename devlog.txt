@@ -58,3 +58,18 @@ June 1, 2017
 
 Theodore -- Implemented template searching
 Joanna -- Arranged Display.pde so that images could be more easily rotated
+
+***************************************************************
+June 4, 2017
+
+Theodore -- textures, template implementation into display
+
+**************************************************************
+June 5, 2017
+
+Theodore -- more textures, proper rotation for transposed rooms
+
+**************************************************************
+June 6, 2017
+
+Theodore -- textures for player, monster, items, display for them
