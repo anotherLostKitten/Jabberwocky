@@ -83,7 +83,7 @@ void draw() {
         int q = 4;
         while ( q > 0 ) {
           int m = (int) random(q);
-          if (room[mon.arrayY + mov[m][1]][mon.arrayX + mov[m][0]] != 0) {
+          if (room[mon.arrayY + mov[m][1]][mon.arrayX + mov[m][0]] != 0 && frameCount % 2 == 0) {
             mon.move(mov[m]);
             break;
           }
@@ -101,6 +101,8 @@ void draw() {
         }
         mon.placeTo(automaton);
         mon.display();
+        fill(#FF0000);
+        rect(mon.x + mon.health / 4, mon.y - 20, mon.health / 2, 4);
       }
     }
     if ( monCount == 0 ) {
