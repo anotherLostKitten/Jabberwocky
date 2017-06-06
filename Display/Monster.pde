@@ -2,11 +2,12 @@ public class Monster extends Item {
 
   private int health;
   private int attack;
-
+  public boolean alive;
   public Monster(int x, int y) {
     super(x, y, "monster.png");
     health = 50 +  (int) random(20);
     attack = 10 +  (int) random(16);
+    alive = true;
   }
 
 
@@ -14,8 +15,11 @@ public class Monster extends Item {
     health -= damage;
     return health < 0;
   }
-    public void move(int r, int c) {
-      arrayX+=r;
-      arrayY+=c;
+  public int getAttack() {
+    return attack;
+  }
+  public void move(int[] rc) {
+    arrayX+=rc[0];
+    arrayY+=rc[1];
   }
 }

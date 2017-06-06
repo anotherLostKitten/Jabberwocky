@@ -1,11 +1,11 @@
-class Player extends Item{
+class Player extends Item {
   int attack;
   int health; 
   //int magic;     
   InvItem[] inventory;
-  Player(){
+  Player() {
     super(0, 0, "player.png");
-    attack = 50;
+    attack = 10;
     health = 300;
     //magic = 50;
     x = 280;
@@ -14,22 +14,33 @@ class Player extends Item{
     inventory[0] = new InvItem(101);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
-    while (room[arrayY][arrayX] < 1){
+    while (room[arrayY][arrayX] < 1) {
       arrayX = (int) random(room[0].length);
       arrayY = (int) random(room.length);
     }
     //arrayX = 1;
     //arrayY = 1;
   }
-  void moveX(int thing){
+  void moveX(int thing) {
     arrayX += thing;
   }
-  void moveY(int thing){
+  void moveY(int thing) {
     arrayY += thing;
   }
-  
+  void pickUp(FloorItem q) {
+    if (q.id == 4) {
+      health += 50;
+      if ( health > 300 )
+        health = 300;
+    } else {
+       attack += q.id * 2 + 1; 
+       if ( attack > 300 ) {
+          attack = 300; 
+       }
+    }
+  }
 
-  Boolean getItem(int itemID){
+  Boolean getItem(int itemID) {
     //item id:
     //101: Knife (default item with infinite durability)
     //102: Sword
@@ -39,11 +50,10 @@ class Player extends Item{
     //106: Spell
     InvItem bloop = new InvItem(itemID); //creates inventory item
     int x = 0; 
-    while (inventory[x] == null){
-      if (x < 7){
-      x++;
-      }
-      else{
+    while (inventory[x] == null) {
+      if (x < 7) {
+        x++;
+      } else {
         System.out.println("inventory is full.");
         return false;
       }
@@ -51,22 +61,19 @@ class Player extends Item{
     inventory[x] = bloop; //adds inventory item to an open inventory slot
     return true;
   }
-  
-  int useItem(int slot){//returns damage, if no damage returns 0;
-      if (inventory[slot].reduceDurability()){//if it doesnt break
-        if (inventory[slot].getID() == 105){//if its a potion, restore health
-            health+= inventory[slot].getRestHealth();
-        }
-        /*if (inventory[slot].getID() == 106){// if its a spell, restore magic
-            magic+= inventory[slot].getRestMagic();
-        }*/
-        return inventory[slot].getDamage(); //all invItems return damage (even 0) 
+
+  int useItem(int slot) {//returns damage, if no damage returns 0;
+    if (inventory[slot].reduceDurability()) {//if it doesnt break
+      if (inventory[slot].getID() == 105) {//if its a potion, restore health
+        health+= inventory[slot].getRestHealth();
       }
-      else{
-        inventory[slot] = null;
-        return 0;
-      }
-      
+      /*if (inventory[slot].getID() == 106){// if its a spell, restore magic
+       magic+= inventory[slot].getRestMagic();
+       }*/
+      return inventory[slot].getDamage(); //all invItems return damage (even 0)
+    } else {
+      inventory[slot] = null;
+      return 0;
+    }
   }
-  
 }
