@@ -136,6 +136,11 @@ void draw() {
     //text(automaton.magic + " / 50", 750, 297);
     //inventory
     text("Inventory", 750, 260);
+    for (int bagged = 0; bagged < automaton.inventory.length; bagged += 1){
+      //automaton.inventory[bagged].x = 600 + (40 * bagged);
+      //automaton.inventory[bagged].y = 300;
+      //automaton.inventory[bagged].display();
+    }
   } else if (gameState == 1) {
     textFont(f, 40);
     text("YOU WON", 450, 300);
