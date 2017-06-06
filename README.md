@@ -1,5 +1,5 @@
-# Jabberwocky
-## Theodore Peters, James Zhang, Joanna Zhou
+## Jabberwocky
+### Theodore Peters, James Zhang, Joanna Zhou
 
 # Dungeony McDungeonface
 
