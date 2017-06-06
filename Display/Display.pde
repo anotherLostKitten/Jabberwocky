@@ -136,6 +136,8 @@ void draw() {
     text(automaton.attack + " / 300", 750, 217);
     //text("Magic", 750, 260);
     //text(automaton.magic + " / 50", 750, 297);
+    //inventory
+    text("Inventory", 750, 260);
   } else if (gameState == 1) {
     textFont(f, 40);
     text("YOU WON", 450, 300);
