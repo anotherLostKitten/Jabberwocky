@@ -15,30 +15,30 @@ public class InvItem{
     if (ID == 101){
       idNum = 101;
        durability = -100;//infinite use
-       damage = 10 + 10;}
+       damage = 10;}
     if (ID == 102){
       idNum = 102;
-       durability = 5 + 3;
-       damage = 50 + 5;}
+       durability = 5;
+       damage = 50;}
     if (ID == 103){
       idNum = 103;
-       durability = 10 + 2;
-       damage = 30 + 20;}
+       durability = 10;
+       damage = 30;}
     if (ID == 104){
       idNum = 104;
        durability = 15;
-       damage = 20 + 25;}    
+       damage = 20;}    
     if (ID == 105){
       idNum = 105;
        durability = 1;
-       restoreHealth = 150 + 10;
+       restoreHealth = 150;
       damage =0;}
-    if (ID == 106){
+/*    if (ID == 106){
       idNum = 106;
        durability = 1;
-       restoreMagic = 25 + 10;
+       restoreMagic = 25;
       damage =0;}  
-       }
+   */    }
        
   Boolean reduceDurability(){ //returns false if the weapon/potion/spell is used up.
     durability -= 1;

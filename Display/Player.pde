@@ -27,18 +27,17 @@ class Player extends Item {
   void moveY(int thing) {
     arrayY += thing;
   }
+
+  
+  
+  
+  
   void pickUp(FloorItem q) {
-    if (q.id == 4) {
-      health += 50;
-      if ( health > 300 )
-        health = 300;
-    } else {
-       attack += q.id * 2 + 1; 
-       if ( attack > 300 ) {
-          attack = 300; 
-       }
-    }
+      getItem(q.id);
   }
+
+
+
 
   Boolean getItem(int itemID) {
     //item id:
@@ -62,18 +61,20 @@ class Player extends Item {
     return true;
   }
 
-  int useItem(int slot) {//returns damage, if no damage returns 0;
+  void useItem(int slot) {//returns damage, if no damage returns 0;
     if (inventory[slot].reduceDurability()) {//if it doesnt break
       if (inventory[slot].getID() == 105) {//if its a potion, restore health
-        health+= inventory[slot].getRestHealth();
+        health+= 150;
+        if (health > 300){
+         health = 300; 
+        }
       }
       /*if (inventory[slot].getID() == 106){// if its a spell, restore magic
        magic+= inventory[slot].getRestMagic();
        }*/
-      return inventory[slot].getDamage(); //all invItems return damage (even 0)
+      attack = inventory[slot].getDamage(); //all invItems return damage (even 0)
     } else {
       inventory[slot] = null;
-      return 0;
     }
   }
 }
