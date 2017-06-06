@@ -4,7 +4,7 @@ public class Monster extends Item {
   private int attack;
 
   public Monster(int x, int y) {
-    super(x, y, #FFFFFF);
+    super(x, y, "monster.png");
     health = 50 +  (int) random(20);
     attack = 10 +  (int) random(16);
   }

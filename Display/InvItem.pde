@@ -3,9 +3,8 @@ public class InvItem{
     //101: Knife (default item with infinite durability)
     //102: Sword
     //103: Spear
-    //104: Axe
+    //104: Morningstar
     //105: Potion
-    //106: Spell
   int durability;
   int restoreHealth;
   int restoreMagic;

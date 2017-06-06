@@ -1,13 +1,13 @@
 class Player extends Item{
   int attack;
   int health; 
-  int magic;     
+  //int magic;     
   InvItem[] inventory;
   Player(){
-    super(0, 0, #0009AA);
+    super(0, 0, "player.png");
     attack = 50;
     health = 300;
-    magic = 50;
+    //magic = 50;
     x = 280;
     y = 280;
     inventory = new InvItem[4];
@@ -57,9 +57,9 @@ class Player extends Item{
         if (inventory[slot].getID() == 105){//if its a potion, restore health
             health+= inventory[slot].getRestHealth();
         }
-        if (inventory[slot].getID() == 106){// if its a spell, restore magic
+        /*if (inventory[slot].getID() == 106){// if its a spell, restore magic
             magic+= inventory[slot].getRestMagic();
-        }
+        }*/
         return inventory[slot].getDamage(); //all invItems return damage (even 0) 
       }
       else{

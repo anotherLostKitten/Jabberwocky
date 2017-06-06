@@ -2,18 +2,17 @@ class Item {
   int size;
   int x;
   int y;
-  color col;
+  PImage imag;
   int arrayX;
   int arrayY;
-  Item(int row, int coll, color whatever){
+  Item(int row, int coll, String whatever){
     size = 40;
     arrayX = row;
     arrayY = coll;
-    col = whatever;
+    imag = loadImage(whatever);
   }
   void display(){
-      fill(col);
-    rect(x, y, size, size);
+    image(imag, x + 20, y + 20, size, size);
   }
   void placeTo(Item thing){
     this.x = (arrayX + 7 - thing.arrayX)* 40;
