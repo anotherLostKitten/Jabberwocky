@@ -7,6 +7,8 @@ Player automaton;
 PFont f;
 int olCount = 0;//movement purposes
 int gameState = 0;
+String[] invie = {"dagger.png", "sword.png", "spear.png", "morningstar.png", "potion.png"};
+PImage[] indisp = new PImage[5];
 Monster[] enemy = new Monster[32];
 FloorItem[] friend = new FloorItem[64];
 void setup() {
@@ -15,6 +17,9 @@ void setup() {
   size(900, 600);
   imageMode(CENTER);
   f = createFont("Monospaced.bold", 20, true);
+  for (int thingiemadoodle = 0; thingiemadoodle < invie.length; thingiemadoodle += 1){
+    indisp[thingiemadoodle] = loadImage(invie[thingiemadoodle]);
+  }
   for (int i = 0; i < textureNames.length; i++ ) {
     textures[i] = loadImage("../data/" + textureNames[i] + ".png");
   }
@@ -137,9 +142,10 @@ void draw() {
     //inventory
     text("Inventory", 750, 260);
     for (int bagged = 0; bagged < automaton.inventory.length; bagged += 1){
-      //automaton.inventory[bagged].x = 600 + (40 * bagged);
-      //automaton.inventory[bagged].y = 300;
-      //automaton.inventory[bagged].display();
+      if (automaton.inventory[bagged] != null){
+        image(indisp[automaton.inventory[bagged].idNum],
+              640 + 50 * bagged, 300, 40, 40);
+      }
     }
   } else if (gameState == 1) {
     textFont(f, 40);
