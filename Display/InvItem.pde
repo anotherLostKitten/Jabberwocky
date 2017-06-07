@@ -18,16 +18,16 @@ public class InvItem{
        damage = 10;}
     if (ID == 1){
       idNum = 1;
-       durability = 3;
+       durability = 2;
        damage = 50;}
     if (ID == 2){
       idNum = 2;
-       durability = 5;
-       damage = 30;}
+       durability = 3;
+       damage = 40;}
     if (ID == 3){
       idNum = 3;
-       durability = 7;
-       damage = 25;}    
+       durability = 5;
+       damage = 30;}    
     if (ID == 4){
       idNum = 4;
        durability = 1;
