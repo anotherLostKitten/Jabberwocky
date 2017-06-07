@@ -85,6 +85,8 @@ Unresolved Issues:
     Shop was not implemented, nor was magic.
     Combat system is not very fun.
     Stats bar looks rather unpolished.
+    Items you can't pick up are destroyed.
+    Hitting a button that contains no object will lead to an error.
 
 Cool Stuff Learned:
     Rotation was challenging, and learning how to rotate an image around its own center

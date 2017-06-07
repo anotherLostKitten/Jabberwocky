@@ -51,7 +51,7 @@ class Player extends Item {
     InvItem bloop = new InvItem(itemID); //creates inventory item
     int x = 0; 
     while (inventory[x] != null) {
-      if (x < inventory.length) {
+      if (x < inventory.length - 1) {
         x++;
       } else {
         System.out.println("inventory is full.");
