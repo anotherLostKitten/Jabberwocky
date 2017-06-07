@@ -148,10 +148,16 @@ void draw() {
     //text(automaton.magic + " / 50", 750, 297);
     //inventory
     text("Inventory", 750, 260);
+    
+    for (int invNum = 0; invNum < automaton.inventory.length; invNum += 1){
+    text( invNum , 670 + 50 * invNum , 280);    
+    }
+    
+    
     for (int bagged = 0; bagged < automaton.inventory.length; bagged += 1){
       if (automaton.inventory[bagged] != null){
         image(indisp[automaton.inventory[bagged].idNum],
-              640 + 50 * bagged, 300, 40, 40);
+              670 + 50 * bagged, 300, 40, 40);
       }
     }
   } else if (gameState == 1) {
