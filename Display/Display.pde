@@ -174,6 +174,9 @@ void draw() {
 void keyPressed() {
   if (key == '1' || key == '2' || key == '3' || key == '4'){
     automaton.usingSlot = int(key) - 49;
+    if (automaton.inventory[automaton.usingSlot] == null){
+      automaton.usingSlot = 0;
+    }
     automaton.attack = automaton.inventory[automaton.usingSlot].getDamage();
     if (automaton.inventory[automaton.usingSlot].idNum == 4){
       automaton.useItem(automaton.usingSlot);
