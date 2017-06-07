@@ -81,6 +81,11 @@ void draw() {
       if (mon.alive) {
         monCount++;
         if (mon.arrayX == automaton.arrayX && mon.arrayY == automaton.arrayY) {
+          automaton.useItem(automaton.usingSlot);
+          if (automaton.inventory[automaton.usingSlot] == null){
+            automaton.usingSlot = 0;
+            automaton.attack = 10;
+          }
           if (mon.setHealth(automaton.attack))
             mon.alive = false;
         }
@@ -105,6 +110,8 @@ void draw() {
           }
         }
         mon.placeTo(automaton);
+        fill(#FF0000);
+        rect(mon.x + 15, mon.y - 15, mon.health/2, 4);
         mon.display();
       }
     }
@@ -157,7 +164,14 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key == CODED && olCount != frameCount) {
+  if (key == '1' || key == '2' || key == '3' || key == '4'){
+    automaton.usingSlot = int(key) - 49;
+    automaton.attack = automaton.inventory[automaton.usingSlot].getDamage();
+    if (automaton.inventory[automaton.usingSlot].idNum == 4){
+      automaton.useItem(automaton.usingSlot);
+    }
+  }
+  else if (key == CODED && olCount != frameCount) {
     if (keyCode == DOWN && room[automaton.arrayY + 1][automaton.arrayX] != 0) {
       automaton.moveY(1);
     } else if (keyCode == UP && room[automaton.arrayY - 1][automaton.arrayX] != 0) {

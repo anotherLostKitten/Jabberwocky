@@ -1,6 +1,7 @@
 class Player extends Item {
   int attack;
   int health; 
+  int usingSlot = 0;
   //int magic;     
   InvItem[] inventory;
   Player() {
@@ -11,7 +12,7 @@ class Player extends Item {
     x = 280;
     y = 280;
     inventory = new InvItem[4];
-    inventory[0] = new InvItem(101);  //sets the first slot as knife
+    inventory[0] = new InvItem(0);  //sets the first slot as knife
     arrayX = (int) random(room[0].length);
     arrayY = (int) random(room.length);
     while (room[arrayY][arrayX] < 1) {
@@ -73,7 +74,8 @@ class Player extends Item {
        magic+= inventory[slot].getRestMagic();
        }*/
       attack = inventory[slot].getDamage(); //all invItems return damage (even 0)
-    } else {
+    }
+    else {
       inventory[slot] = null;
     }
   }
