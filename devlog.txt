@@ -72,4 +72,39 @@ Theodore -- more textures, proper rotation for transposed rooms
 **************************************************************
 June 6, 2017
 
-Theodore -- textures for player, monster, items, display for them. Also created monster combat system, movement, item floor pick ups, item floor pick up effects.
+Theodore -- textures for player, monster, items, display for them.
+            Also created monster combat system, movement, item floor
+            pick ups, item floor pick up effects.
+Joanna -- Worked on inventory and weapon engagement system.
+
+Obstacles Overcome:
+    There was an issue with the template create system when making rooms due to file usage.
+        Resolved by Theodore using fileNotFound, and more processing-friendly methods.
+
+Unresolved Issues:
+    Shop was not implemented, nor was magic.
+    Combat system is not very fun.
+    Stats bar looks rather unpolished.
+
+Cool Stuff Learned:
+    Rotation was challenging, and learning how to rotate an image around its own center
+      was difficult.
+    We, and mostly Theodore, learned about how processing accesses files.
+    Framerate method was used.
+    Do not put keyPressed() into draw unless you want it to keep doing the same command
+      forever.
+
+Mid-development Design Changes:
+    Was originally going to implement a navigation system in order to move around. Design
+      changes to the viewscreen made this method impractical.
+    Originally, unexplored regions were to be shrouded in black. Player viewpoint made
+      this impractical.
+    There were also going to be doors, so that the player could only see explored rooms.
+      Too complicated, idea was scrapped.
+    Multiple monsters done away with due to time constraints.
+    Spells and magic done away with due to time constraints, as well as shops.
+
+Lessons Learned:
+    Final projects should never be given during finals. We are very, very tired.
+    Theodore for MVP.
+    Sometimes the project will look very little like the way it was originally concieved.
