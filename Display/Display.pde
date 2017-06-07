@@ -110,6 +110,8 @@ void draw() {
           }
         }
         mon.placeTo(automaton);
+        fill(255, 128, 128);
+        rect(mon.x + 15, mon.y - 15, mon.mHP/2, 4);
         fill(#FF0000);
         rect(mon.x + 15, mon.y - 15, mon.health/2, 4);
         mon.display();
