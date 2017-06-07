@@ -149,8 +149,8 @@ void draw() {
     //inventory
     text("Inventory", 750, 260);
     
-    for (int invNum = 0; invNum < automaton.inventory.length; invNum += 1){
-    text( invNum , 670 + 50 * invNum , 280);    
+    for (int invNum = 1; invNum < automaton.inventory.length + 1; invNum += 1){
+    text( invNum , 620 + 50 * invNum , 280);    
     }
     
     
