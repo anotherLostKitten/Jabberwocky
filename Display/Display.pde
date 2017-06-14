@@ -182,6 +182,9 @@ void keyPressed() {
       automaton.useItem(automaton.usingSlot);
     }
   }
+  else if (key == 'd' && automaton.usingSlot != 0){
+    automaton.inventory[automaton.usingSlot] = null;
+  }
   else if (key == CODED && olCount != frameCount) {
     if (keyCode == DOWN && room[automaton.arrayY + 1][automaton.arrayX] != 0) {
       automaton.moveY(1);
